@@ -1,0 +1,13 @@
+def encrypt(x, B, p, q):
+    n = p*q
+    return (x*(x+B))%n
+
+print(encrypt(32767, 1357, 199, 211))
+
+def exhaustive_decrypt(y, B, p, q):
+    n = p*q
+    for x in range(n):
+        if (x**2 + x*B - y) % n == 0:
+            print(x)
+
+exhaustive_decrypt(16027, 1357, 199, 211)
